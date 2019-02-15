@@ -15,7 +15,7 @@ Lembrando que os arquivos que diferem das video-aulas sao
 - roles/puppet/tasks/main.yml
 
 
-#### Estrutura de Pastas 
+#### Estrutura de Arquivos 
 ```
 ├── ansible.cfg
 ├── hosts
@@ -130,7 +130,7 @@ head -1 /etc/hosts
 - /etc/puppetlabs/code/environments/production/modules/web/
 
 
-#### Estrutura da Pasta
+#### Estrutura da Arquivos
 
 ```
 
@@ -210,4 +210,21 @@ head -1 /etc/hosts
 │       └── ca.cfg
 └── pxp-agent
     └── modules
+```
+## Maq Docker
+
+### Docker
+
+#### Arquivos alterados
+
+Os principais arquivos alterados nesta VM são os que provisionam o container do laboratório final do curso (Dockerfile)
+
+
+#### Estrutura de arquivos
+```
+dockerfiles/
+├── config
+├── Dockerfile
+├── id_rsa
+└── puppet.conf
 ```
