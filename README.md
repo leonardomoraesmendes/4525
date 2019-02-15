@@ -3,17 +3,17 @@
 
 #4 Arquivos alterados
 Na aula de Ansible foram alterados os arquivos/diretorios
-...* hosts
-...* ansible.cfg
-...* playbooks/
-...* roles/
+..* hosts
+..* ansible.cfg
+..* playbooks/
+..* roles/
 
 Lembrando que os arquivos que diferem das video-aulas sao
-...* roles/puppet/tasks/main.yml
+..* roles/puppet/tasks/main.yml
 
 
 #4 Estrutura de Pastas 
-
+```
 ├── ansible.cfg
 ├── hosts
 ├── playbooks
@@ -108,7 +108,7 @@ Lembrando que os arquivos que diferem das video-aulas sao
         └── vars
             └── main.yml
 
-
+```
 
 
 #2 Puppet
@@ -122,12 +122,15 @@ head -1 /etc/hosts
 
 #4 Arquivos alterados
 
-...* /etc/puppetlabs/puppet/autosign.conf
-...* /etc/puppetlabs/code/environments/production/manifests/site.pp
-...* /etc/puppetlabs/code/environments/production/modules/web/
+..* /etc/puppetlabs/puppet/autosign.conf
+..* /etc/puppetlabs/code/environments/production/manifests/site.pp
+..* /etc/puppetlabs/code/environments/production/modules/web/
 
 
 #4 Estrutura da Pasta
+
+```
+
 /etc/puppetlabs/
 ├── code
 │   ├── environments
@@ -213,3 +216,4 @@ head -1 /etc/hosts
 │       └── ca.cfg
 └── pxp-agent
     └── modules
+```
