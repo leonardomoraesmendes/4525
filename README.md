@@ -1,5 +1,8 @@
-# 4525
-## Ansible
+# 4525 - Curso EAD 05/2019
+
+## Maq DevOps
+
+### Ansible
 
 #### Arquivos alterados
 Na aula de Ansible foram alterados os arquivos/diretorios
@@ -111,7 +114,7 @@ Lembrando que os arquivos que diferem das video-aulas sao
 ```
 
 
-## Puppet
+### Puppet
 É importante lembrar que quando é instalado o puppet Server para ele ininiciar corretamente temos que adicionar no arquivo /etc/hosts o nome puppet para responder no endereço 127.0.0.1
 
 ```
