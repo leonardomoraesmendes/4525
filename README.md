@@ -184,16 +184,7 @@ head -1 /etc/hosts
 │       │   ├── requests
 │       │   ├── serial
 │       │   └── signed
-│       │       ├── 2277e2d5f5d1.dexter.com.br.pem
-│       │       ├── 49b1aefa041b.dexter.com.br.pem
-│       │       ├── 550ef7ff2a4c.dexter.com.br.pem
-│       │       ├── 6acccf227123.dexter.com.br.pem
-│       │       ├── 6b64f8ecfa99.dexter.com.br.pem
-│       │       ├── 6eb4022fe6a2.dexter.com.br.pem
-│       │       ├── 75ed3aee4534.dexter.com.br.pem
-│       │       ├── a55bc83de383.dexter.com.br.pem
 │       │       ├── devops.dexter.com.br.pem
-│       │       └── f77d94195c18.dexter.com.br.pem
 │       ├── certificate_requests
 │       ├── certs
 │       │   ├── ca.pem
