@@ -1,7 +1,7 @@
-#1 4525
-#2 Ansible
+# 4525
+## Ansible
 
-#4 Arquivos alterados
+#### Arquivos alterados
 Na aula de Ansible foram alterados os arquivos/diretorios
 - hosts
 - ansible.cfg
@@ -12,7 +12,7 @@ Lembrando que os arquivos que diferem das video-aulas sao
 - roles/puppet/tasks/main.yml
 
 
-#4 Estrutura de Pastas 
+#### Estrutura de Pastas 
 ```
 ├── ansible.cfg
 ├── hosts
@@ -111,7 +111,7 @@ Lembrando que os arquivos que diferem das video-aulas sao
 ```
 
 
-#2 Puppet
+## Puppet
 É importante lembrar que quando é instalado o puppet Server para ele ininiciar corretamente temos que adicionar no arquivo /etc/hosts o nome puppet para responder no endereço 127.0.0.1
 
 ```
@@ -120,14 +120,14 @@ head -1 /etc/hosts
 
 ```
 
-#4 Arquivos alterados
+#### Arquivos alterados
 
 - /etc/puppetlabs/puppet/autosign.conf
 - /etc/puppetlabs/code/environments/production/manifests/site.pp
 - /etc/puppetlabs/code/environments/production/modules/web/
 
 
-#4 Estrutura da Pasta
+#### Estrutura da Pasta
 
 ```
 
