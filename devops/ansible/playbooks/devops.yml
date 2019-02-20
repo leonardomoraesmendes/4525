@@ -3,4 +3,4 @@
   hosts: devops
   roles:
     - puppet
-#    - gitlab 
+    - gitlab 
