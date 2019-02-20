@@ -14,7 +14,7 @@
 - name: Baixando script de instalacao
   get_url:
     url: https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh
-  dest: /tmp/script.deb.sh
+    dest: /tmp/script.deb.sh
 
 - name: Executando o script
   command: bash /tmp/script.deb.sh
