@@ -1,0 +1,30 @@
+---
+# tasks file for verificar
+- name: Validando o Virtual Host
+  stat:
+    path: /etc/nginx/sites-enabled/green.conf
+  register: vhost
+
+- name: Remover green env
+  file:
+    path: /etc/nginx/sites-enabled/green.conf
+    state: absent
+  when: vhost.stat.exists
+
+- name: Deploy blue env
+  copy:
+    src: /etc/ansible/roles/verificar/files/blue.conf
+    dest: /etc/nginx/sites-enabled/blue.conf
+  when: vhost.stat.exists
+
+- name: Remover blue env
+  file:
+    path: /etc/nginx/sites-enabled/blue.conf
+    state: absent
+  when: not vhost.stat.exists
+
+- name: Deploy green env
+  copy:
+    src: /etc/ansible/roles/verificar/files/green.conf
+    dest: /etc/nginx/sites-enabled/green.conf
+  when: not vhost.stat.exists

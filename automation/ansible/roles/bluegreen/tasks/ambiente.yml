@@ -1,0 +1,32 @@
+---                                               
+# tasks file for create                           
+#
+- name: verificando ambiente
+  shell: 'egrep "blue|green" /tmp/log'
+  register: name
+
+- name: Realizar a criacao de um container do docker caso seja green
+  command: docker run -dit --name {{ name.stdout }} --net=dexterlan --ip 10.0.0.41 --add-host devops.dexter.com.br:192.168.200.100 --hostname {{ name.stdout }}.dexter.com.br  deploy
+  when: container.rc == 0 and name.stdout == "green"
+                                                  
+- name: Realizar a criacao de um container do docker caso seja blue
+  command: docker run -dit --name {{ name.stdout }} --net=dexterlan --ip 10.0.0.42 --add-host devops.dexter.com.br:192.168.200.100 --hostname {{ name.stdout }}.dexter.com.br  deploy
+  when: container.rc == 0 and name.stdout == "blue"
+                                                  
+- name: Aguardar o puppet aplicar as configuracoes
+  pause:                                          
+    minutes: 2                                    
+                                                  
+- name: Remove a pagina default do apache         
+  command: docker exec {{ name.stdout }} rm -f /etc/apache2/sites-enabled/000-default.conf
+                                                  
+- name: Baixar a nova versao do codigo            
+  command: docker exec {{ name.stdout }} git clone git@devops.dexter.com.br:devops/puppet-web.git /var/www/site
+                                                  
+- name: restart Apache2                           
+  command: docker exec {{ name.stdout }} service apache2 restart
+                                                  
+- name: restart NGINX                             
+  service:                                        
+    name: nginx                    
+    state: restarted

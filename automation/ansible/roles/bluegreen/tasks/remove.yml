@@ -1,0 +1,15 @@
+---                                               
+# tasks file for remove container                          
+- name: verificando ambiente                      
+  shell: 'egrep "blue|green" /tmp/log'            
+  register: name                                  
+                                                  
+- name: Verificar a existencia de um container       
+  command: docker inspect {{ name.stdout }}       
+  register: container                             
+  ignore_errors: yes                              
+                                                  
+- name: Remover o container caso exista           
+  command: docker rm -f {{ name.stdout }}         
+  when: container.rc == 0                         
+  ignore_errors: yes                              

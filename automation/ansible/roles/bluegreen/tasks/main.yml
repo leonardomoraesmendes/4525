@@ -1,0 +1,15 @@
+---
+# tasks file for bluegreen
+- import_tasks: verifica.yml
+  when: inventory_hostname != puppetserver
+
+#- import_tasks: log.yml
+#  when: inventory_hostname != puppetserver
+
+- import_tasks: remove.yml
+  when: inventory_hostname != puppetserver
+
+- import_tasks: certificado.yml
+
+- import_tasks: ambiente.yml
+  when: inventory_hostname != puppetserver

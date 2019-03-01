@@ -1,0 +1,11 @@
+---                                               
+# tasks file for create                           
+#
+- name: verificando ambiente    
+  shell: 'egrep "blue|green" /tmp/log'     
+  register: name
+  when: inventory_hostname != puppetserver
+                                                  
+- name: Limpa o certificado do Puppet Server
+  command: /opt/puppetlabs/bin/puppetserver ca clean --certname "{{ hostvars['docker.dexter.com.br']['name'].stdout }}".dexter.com.br
+  when: inventory_hostname == puppetserver

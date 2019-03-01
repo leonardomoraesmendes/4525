@@ -1,0 +1,45 @@
+---
+# tasks file for verificar
+- name: Validando o Virtual Host
+  command: test -f /etc/nginx/sites-enabled/green.conf
+  register: vhost
+  ignore_errors: yes
+
+##ALTERANDO PARA O BLUE E GERANDO LOG
+- name: Colocando o Blue em producao e gerando log
+  block:   
+
+  - name: Remover green env 
+    file:
+      path: /etc/nginx/sites-enabled/green.conf
+      state: absent
+   
+  - name: Deploy blue env 
+    copy:
+      src: /etc/ansible/roles/bluegreen/files/blue.conf
+      dest: /etc/nginx/sites-enabled/blue.conf
+
+  - name: Gerando log caso seja blue
+    shell: echo blue > /tmp/log
+
+  when: vhost.rc == 0
+
+##ALTERANDO PARA O GREEN E GERANDO LOG
+
+- name: Colocando o Green em producao e gerando log 
+  block:
+ 
+  - name: Remover blue env 
+    file:
+      path: /etc/nginx/sites-enabled/blue.conf
+      state: absent
+   
+  - name: Deploy green env 
+    copy:
+      src: /etc/ansible/roles/bluegreen/files/green.conf
+      dest: /etc/nginx/sites-enabled/green.conf
+
+  - name: Gerando log caso seja green
+    shell: echo green > /tmp/log
+
+  when: vhost.rc == 1

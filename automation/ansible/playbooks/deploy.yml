@@ -1,0 +1,6 @@
+---
+- hosts: docker devops
+  vars:
+  - puppetserver: devops.dexter.com.br
+  roles:
+  - bluegreen
